@@ -1,7 +1,7 @@
-from mbib.sistem_file import app
-import mbib.rfact
-import mbib.rname
-import mbib.secret 
+from sistem_file import app
+import rfact
+import rname
+import secret 
 
 
 @app.route("/")
@@ -14,15 +14,15 @@ def main_hello():
 @app.route("/rfact")
 def rfact():
     return f'''
-    <h2>{mbib.rfact.rfact()}</h2>
+    <h2>{rfact.rfact()}</h2>
     '''
 @app.route('/secret')
 def secret():
-    pas8 = mbib.secret.gen_pass8()
-    pas16 = mbib.secret.gen_pass16()
-    monetka = mbib.secret.monetka()
-    color = mbib.secret.color()
-    num = mbib.secret.rnum()
+    pas8 = secret.gen_pass8()
+    pas16 = secret.gen_pass16()
+    monetka = secret.monetka()
+    color = secret.color()
+    num = secret.rnum()
 
     return f'''
     <h1>Вот безопасный пароль:
@@ -37,7 +37,7 @@ def secret():
 @app.route('/rname')
 def rname():
     return f'''
-    <h1>Меня зовут {mbib.rname.rname()}.</h1>
+    <h1>Меня зовут {rname.rname()}.</h1>
     <a href = '/rname'><h2>Нажми чтобы перезагрузить страницу!</h2></a>
     '''
 
